@@ -7,8 +7,8 @@ class Todo(Resource):
 
     def get(self):
         # TODO: return all todos
-        return NotImplementedError()
+        raise NotImplementedError()
 
     def post(self):
         # TODO: get input, validate it, create new todo, return new_todo
-        return NotImplementedError()
+        raise NotImplementedError()
