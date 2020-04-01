@@ -8,3 +8,9 @@ class FuncDTO:
         self.func = func
         self.args = args
         self.kwargs = kwargs
+
+
+class ValidationResult:
+    def __init__(self, is_valid, message):
+        self.is_valid = is_valid
+        self.message = message
