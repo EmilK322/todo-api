@@ -1,5 +1,5 @@
 import abc
-from controllers.controller import GetController, PostController
+from app.controllers.controller import GetController, PostController
 
 
 class TodoController(GetController, PostController):
