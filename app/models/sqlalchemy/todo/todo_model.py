@@ -4,7 +4,7 @@ import marshmallow as ma
 import app.models.sqlalchemy.todo.todo_validation as validation
 from app.common.database import Model
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 class Todo(Model):
     __tablename__ = 'todo'
