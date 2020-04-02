@@ -12,7 +12,7 @@ def validate_id(id):
     todo = todo_model.Todo.query.get(id)
     if todo is None:
         _logger.error(f'failed to get todo by id: {id}')
-        _logger.error(f': failed to validate todo_id: {todo}')
+        _logger.error(f': failed to validate todo_id: {todo} because id not found')
         raise ma.ValidationError(f'id: {id} not found')
 
     _logger.info(f'successfully validated todo_id: {todo}')
