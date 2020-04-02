@@ -1,3 +1,5 @@
+import logging
+
 import marshmallow as ma
 import app.models.sqlalchemy.todo.todo_queries as todo_queries
 import app.models.sqlalchemy.todo.todo_validation as todo_validation
@@ -8,6 +10,9 @@ from app.common.http.response.status_codes import StatusCode
 
 
 class SqlAlchemyTodoByIdController(TodoByIdController):
+    def __init__(self):
+        self.logger = logging.getLogger(__name__)
+
     def get(self, *args, **kwargs):
         todo_id = args[0]
         validation_result = self._validate_todo_id(todo_id)
