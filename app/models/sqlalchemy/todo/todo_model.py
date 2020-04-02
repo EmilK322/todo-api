@@ -1,8 +1,10 @@
+import logging
 import sqlalchemy as sa
 import marshmallow as ma
 import app.models.sqlalchemy.todo.todo_validation as validation
 from app.common.database import Model
 
+logger = logging.getLogger(__name__)
 
 class Todo(Model):
     __tablename__ = 'todo'
@@ -22,4 +24,7 @@ class TodoSchema(ma.Schema):
 
     @ma.post_load
     def make_todo(self, data, **kwargs):
-        return Todo(**data)
+        logger.debug(f'marshmallow post_load creating Todo object with data: {data}')
+        todo = Todo(**data)
+        logger.debug(f'created todo: {todo}')
+        return todo
