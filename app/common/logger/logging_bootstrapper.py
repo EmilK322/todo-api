@@ -13,6 +13,7 @@ def bootstrap_logging():
     rotate_file_handler = RotatingFileHandler(config.ROTATING_LOG_FILE_NAME,
                                               maxBytes=config.ROTATING_LOG_FILE_MAX_BYTES,
                                               backupCount=config.ROTATING_LOG_FILE_BACKUP_COUNT)
-    rotate_file_handler.setFormatter(config.ROTATING_LOG_FILE_FORMAT)
+    formatter = logging.Formatter(config.ROTATING_LOG_FILE_FORMAT)
+    rotate_file_handler.setFormatter(formatter)
     logger.addHandler(rotate_file_handler)
     logger.info('logging initialized')
