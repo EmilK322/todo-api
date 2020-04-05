@@ -24,7 +24,7 @@ class TodoSchema(ma.Schema):
 
     @ma.post_load
     def make_todo(self, data, **kwargs):
-        logger.debug(f'marshmallow post_load creating Todo object with data: {data}')
+        _logger.debug(f'marshmallow post_load creating Todo object with data: {data}')
         todo = Todo(**data)
-        logger.debug(f'created todo: {todo}')
+        _logger.debug(f'created todo: {todo}')
         return todo
