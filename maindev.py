@@ -25,5 +25,3 @@ if __name__ == '__main__':
     logger = logging.getLogger('app')
     logger.info('start running flask app')
     app.run()
-
-
