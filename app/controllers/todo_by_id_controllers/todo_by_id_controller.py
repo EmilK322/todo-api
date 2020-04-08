@@ -1,5 +1,5 @@
 import abc
-from app.controllers.controller import GetController, PutController, DeleteController
+from app.controllers.abc.controller import GetController, PutController, DeleteController
 
 
 class TodoByIdController(GetController, PutController, DeleteController):
