@@ -45,10 +45,10 @@ def change_todo(old_todo, new_todo):
     return old_todo
 
 
-def _shallow_copy_todo_except_id_and_none(copy_to_todo, copy_from_todo):
-    copy_to_todo.text = copy_from_todo.text if copy_from_todo.text else copy_to_todo.text
-    copy_to_todo.completed = copy_from_todo.completed if copy_from_todo.completed else copy_to_todo.completed
-    return copy_to_todo
+def _shallow_copy_todo_except_id_and_none(to_todo, from_todo):
+    to_todo.text = from_todo.text if from_todo.text is not None else to_todo.text
+    to_todo.completed = from_todo.completed if from_todo.completed is not None else to_todo.completed
+    return to_todo
 
 
 def delete_todo(todo):
