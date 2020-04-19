@@ -1,1 +1,1 @@
-from .sqlalchemy.todo.todo_model import Todo, TodoSchema
+from app.models.todo_model import Todo
