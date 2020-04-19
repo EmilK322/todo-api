@@ -1,1 +1,1 @@
-from .model_querier import Querier
+from .model_querier import ModelQuerier

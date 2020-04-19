@@ -8,7 +8,7 @@ class ModelQuerier(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def get_single(self, identifier) -> Any:
+    def get_by_id(self, id) -> Any:
         pass
 
     @abc.abstractmethod
