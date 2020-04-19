@@ -1,8 +1,8 @@
 import abc
-from app.controllers.abc.controller import GetController, PutController, DeleteController
+from app.controllers.abc.controller import ReadController, UpdateController, DeleteController
 
 
-class TodoByIdController(GetController, PutController, DeleteController):
+class TodoByIdController(ReadController, UpdateController, DeleteController):
     @abc.abstractmethod
     def get(self, *args, **kwargs):
         pass

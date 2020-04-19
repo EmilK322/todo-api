@@ -1,16 +1,25 @@
 import logging
 
-import marshmallow as ma
-import app.models.sqlalchemy.todo.todo_queries as todo_queries
-import app.models.sqlalchemy.todo.todo_validation as todo_validation
-from app.controllers.todo_by_id_controllers.todo_by_id_controller import TodoByIdController
-from app.models.sqlalchemy.todo.todo_model import TodoSchema
-from app.common.utils import ValidationResult
-from app.common.http.response.status_codes import StatusCode
+from DAL.repository.abc import Repository
+
+from app.models import Todo
+from app.controllers.abc import
+# import marshmallow as ma
+# import app.models.sqlalchemy.todo.todo_queries as todo_queries
+# import app.models.sqlalchemy.todo.todo_validation as todo_validation
+#
+#
+# from app.controllers.abc.todo_by_id_controller import TodoByIdController
+# from app.models.todo_model import TodoSchema, Todo
+# from app.common.utils import ValidationResult
+# from UI.http.response.status_codes import StatusCode
+from app.validation.abc import Validator
 
 
-class SqlAlchemyTodoByIdController(TodoByIdController):
-    def __init__(self):
+class SqlAlchemyTodoByIdController():
+    def __init__(self, validator: Validator, repository: Repository[Todo]):
+        self.repository = repository
+        self.validator = validator
         self.logger = logging.getLogger(__name__)
 
     def get(self, *args, **kwargs):

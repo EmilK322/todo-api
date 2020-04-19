@@ -1,8 +1,8 @@
 import abc
-from app.controllers.abc.controller import GetController, PostController
+from app.controllers.abc.controller import ReadController, CreateController
 
 
-class TodoController(GetController, PostController):
+class TodoController(ReadController, CreateController):
     @abc.abstractmethod
     def get(self, *args, **kwargs):
         pass

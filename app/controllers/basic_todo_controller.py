@@ -2,9 +2,9 @@ import logging
 
 import app.models.sqlalchemy.todo.todo_queries as todo_queries
 import app.models.sqlalchemy.todo.todo_validation as todo_validation
-from app.controllers.todo_controllers.todo_controller import TodoController
-from app.models.sqlalchemy.todo.todo_model import TodoSchema
-from app.common.http.response.status_codes import StatusCode
+from app.controllers.abc import TodoController
+from app.models.todo_model import TodoSchema
+from UI.http.response.status_codes import StatusCode
 
 
 class SqlAlchemyTodoController(TodoController):
