@@ -1,10 +1,10 @@
 import logging
 from flask_restful import Resource
 from flask import request
-from app.controllers.todo_by_id_controllers.todo_by_id_controller import TodoByIdController
+from app.controllers.abc.todo_by_id_controller import TodoByIdController
 
 
-class TodoById(Resource):
+class TodoByIdResource(Resource):
     def __init__(self, **kwargs):
         self.logger = logging.getLogger(__name__)
         self.controller: TodoByIdController = kwargs['controller']
