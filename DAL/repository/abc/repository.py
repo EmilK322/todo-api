@@ -1,8 +1,7 @@
 import abc
 from typing import TypeVar, Generic, Iterable, Mapping, Any
-from app.common.models.abc import Entity
 
-T = TypeVar('T', bound=Entity)
+T = TypeVar('T')
 
 
 class Repository(abc.ABC, Generic[T]):
