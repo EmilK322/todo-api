@@ -18,7 +18,7 @@ class SqlAlchemyStorageInitializer(StorageInitializer):
         return session_factory
 
     def _map_models(self, metadata):
-        from app.models.sqlalchemy.todo.todo_model import Todo
+        from app.models.todo_model import Todo
         todos = Table('todo', metadata,
                       Column('id', Integer, primary_key=True),
                       Column('text', String),
