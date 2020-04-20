@@ -19,8 +19,11 @@ class TodoByIdResource(Resource):
             self._logger.info(f'calling controller\'s get method with todo_id: {todo_id}')
             todo = self.controller.read(todo_id)
             self._logger.info(f'controller finished and returned: {todo}')
+            self._logger.info(f'return StatusCode: {StatusCode.GENERIC_SUCCESS.value}')
             return todo, StatusCode.GENERIC_SUCCESS.value
         except IdNotFoundError as err:
+            self._logger.exception(f'id not found in controller, {err}')
+            self._logger.info(f'return StatusCode: {StatusCode.INVALID_ID.value}')
             return str(err), StatusCode.INVALID_ID.value
 
     def put(self, todo_id):
@@ -30,10 +33,15 @@ class TodoByIdResource(Resource):
             self._logger.info('calling controller\'s put method with todo_id and body')
             changed_todo = self.controller.update(todo_id, **body)
             self._logger.info(f'controller finished and returned: {changed_todo}')
+            self._logger.info(f'return StatusCode: {StatusCode.GENERIC_SUCCESS.value}')
             return changed_todo, StatusCode.GENERIC_SUCCESS.value
         except IdNotFoundError as err:
+            self._logger.exception(f'id not found in controller, {err}')
+            self._logger.info(f'return StatusCode: {StatusCode.INVALID_ID.value}')
             return str(err), StatusCode.INVALID_ID.value
         except InvalidArgsError as err:
+            self._logger.exception(f'body is not valid, {err}')
+            self._logger.info(f'return StatusCode: {StatusCode.INVALID_BODY.value}')
             return str(err), StatusCode.INVALID_BODY.value
 
     def delete(self, todo_id):
@@ -42,6 +50,9 @@ class TodoByIdResource(Resource):
             self._logger.info(f'calling controller\'s delete method with todo_id: {todo_id}')
             deleted_todo = self.controller.delete(todo_id)
             self._logger.info(f'controller finished and returned: {deleted_todo}')
-            return deleted_todo
+            self._logger.info(f'return StatusCode: {StatusCode.GENERIC_SUCCESS.value}')
+            return deleted_todo, StatusCode.GENERIC_SUCCESS.value
         except IdNotFoundError as err:
+            self._logger.exception(f'id not found in controller, {err}')
+            self._logger.info(f'return StatusCode: {StatusCode.INVALID_ID.value}')
             return str(err), StatusCode.INVALID_ID.value
