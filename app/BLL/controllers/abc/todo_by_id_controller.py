@@ -1,14 +1,14 @@
 import abc
-from app.controllers.abc.controller import ReadController, UpdateController, DeleteController
+from app.BLL.controllers.abc.controller import ReadController, UpdateController, DeleteController
 
 
 class TodoByIdController(ReadController, UpdateController, DeleteController):
     @abc.abstractmethod
-    def get(self, *args, **kwargs):
+    def read(self, *args, **kwargs):
         pass
 
     @abc.abstractmethod
-    def put(self, *args, **kwargs):
+    def update(self, *args, **kwargs):
         pass
 
     @abc.abstractmethod

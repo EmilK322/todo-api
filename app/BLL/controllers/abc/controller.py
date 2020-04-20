@@ -7,19 +7,19 @@ class Controller(abc.ABC):
 
 class ReadController(Controller):
     @abc.abstractmethod
-    def get(self, *args, **kwargs):
+    def read(self, *args, **kwargs):
         pass
 
 
 class CreateController(Controller):
     @abc.abstractmethod
-    def post(self, *args, **kwargs):
+    def create(self, *args, **kwargs):
         pass
 
 
 class UpdateController(Controller):
     @abc.abstractmethod
-    def put(self, *args, **kwargs):
+    def update(self, *args, **kwargs):
         pass
 
 
