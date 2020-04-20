@@ -1,7 +1,7 @@
 import pathlib
 import logging
 
-BASE_DIR = str(pathlib.Path.cwd())
+BASE_DIR = str(pathlib.Path(__file__).parent)
 
 SQLALCHEMY_DATABASE_URI = f"sqlite:///{str(pathlib.Path(BASE_DIR) / 'todo_api.sqlite')}"
 SQLALCHEMY_ENGINE_KWARGS = {
@@ -9,7 +9,8 @@ SQLALCHEMY_ENGINE_KWARGS = {
 }
 SQLALCHEMY_SESSION_KWARGS = {
     'autocommit': False,
-    'autoflush': False
+    'autoflush': False,
+    'expire_on_commit': False
 }
 
 LOGGING_LEVEL = logging.INFO
