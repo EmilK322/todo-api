@@ -1,7 +1,7 @@
 import logging
 
 import marshmallow as ma
-from app.models import Todo
+from app.BLL.models import Todo
 
 
 class TodoSchema(ma.Schema):
